@@ -1,7 +1,8 @@
 import React, {useState } from 'react';
 import Select from 'react-select';
+import './profileSetup.css';
 
-function ProfileSettup = () => {
+function ProfileSetup() {
 
 
     const [currentStep, setCurrentStep] = useState(1);
@@ -9,10 +10,15 @@ function ProfileSettup = () => {
     gender: '',
     age: '',
     major: '',
-    experience: ''
+    experience: '',
+    customMajor: '',
+    quote: '',
+    aboutMe: '',
+    mentorPreference: '',
   });
+  const [selectedMajor, setSelectedMajor] = useState(null); // State for react-select
+
   const majorsOptions = [
-    [
         { value: 'Aerospace Engineering', label: 'Aerospace Engineering' },
         { value: 'Agricultural Engineering', label: 'Agricultural Engineering' },
         { value: 'Architecture', label: 'Architecture' },
@@ -39,19 +45,10 @@ function ProfileSettup = () => {
         { value: 'Systems Engineering', label: 'Systems Engineering' },
         { value: 'Zoology', label: 'Zoology' },
         { value: 'Other', label: 'Other' },
-    ]
-  ];
-
-const handleMajorChange = (selectedOption) => {
-    setSelectedMajor(selectedOption);
-    // if other is selected, 
-    if(selectedOption.value === 'Other') {
-        setFormData({ ...formData, major: '' });
-        // NOTE: CHECK IF THIS IS RIGHT
-    };
+    ];
 
   const handleButtonClick = (value) => {
-    setUserInfo({ ...userInfo, gender: value });
+    setFormData({ ...formData, gender: value });
     setCurrentStep(currentStep + 1); // Move to the next step
   };
 
@@ -62,90 +59,121 @@ const handleMajorChange = (selectedOption) => {
     setFormData({ ...formData, [name]: value });
   }
    // goes to next section of profile setup 
-  const nexStep = () => {
+  const nextStep = () => {
     setCurrentStep(currentStep + 1);
   };
 
-    // goes to previous section of profile setup
-    const prevStep = () => {
-        setCurrentStep(currentStep - 1);
-    };
+  const handleSelectChange = (selectedOption) => {
+    setSelectedMajor(selectedOption);
+    setFormData({ ...formData, major: selectedOption ? selectedOption.value : '' });
+  };
 
-    // handles when user finishes the pages we have set up
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        
-        const assignedPronouns = pronouns || (gender === 'Female' ? 'she/her' : gender === 'Male' ? 'he/him' : 'they/them');
-        //handle sending data to server
-    };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(formData);
+    // Handle submission here
+  };
     
 
 
     return (
-      <form onSubmit={handleSubmit} className="form-grid">
+      
+      <div className="form-container"> {/* Wrap your form in this div */}
+        <form onSubmit={handleSubmit} className="form-grid">
 
         {currentStep === 1 && (
-            <div className=""gender-selection>
-        <label htmlFor="gender">Gender</label>
-            <button type="button" className="circle-btn" onClick={() => handleButtonClick('Female')}>Female</button>
-            <button type="button" className="circle-btn" onClick={() => handleButtonClick('Male')}>Male</button>
-            <button type="button" className="rectangle-btn" onClick={() => handleButtonClick('Other')}>Other</button>
-          </div>
-        )}
-        
-
-        {currentStep === 2 && (
-          <div className="age-selection">
-            <label htmlFor="age">Age</label>
+            <div className="input-group">
+            <Select
+              name="gender"
+              value={formData.gender}
+              onChange={handleInputChange}
+              options={[
+                { value: '', label: 'Select Gender' },
+                { value: 'Male', label: 'Male' },
+                { value: 'Female', label: 'Female' },
+                { value: 'Other', label: 'Other' }
+              ]}
+              placeholder="Gender"
+              className="gender-dropdown"
+            />
             <input 
-                type="number" 
-                name="age" 
-                value={formData.age} 
-                onChange={handleInputChange}
-                placeholder="Enter your age" 
+              type="number" 
+              name="age" 
+              value={formData.age} 
+              onChange={handleInputChange}
+              placeholder="Age" 
+              className="form-Control"
+              min="14"
+              max="120"
             />
-            <button type="button" onClick={() => setCurrentStep(currentStep + 1)}>Next</button>
+            <Select
+              name="major"
+              value={selectedMajor}
+              onChange={handleSelectChange}
+              options={majorsOptions}
+              placeholder="Major"
+              className="major-dropdown"
+            />
+          </div>
+      )}
+        {currentStep === 2 && (
+          <div className="experience-selection">
+          <label htmlFor="experience">Experience</label>
+            <select 
+            id="text" 
+            name="experience" 
+            value={formData.experience} 
+            onChange={handleInputChange} 
+          >
+            <option value="">Select Experience Level</option>
+            <option value="High School">Still in High School</option>
+            <option value="Undergraduate">Still in Undergraduate</option>
+            <option value="Graduate Education">In Higher Education (Graduate)</option>
+            <option value="New Graduate">New Graduate</option>
+            <option value="1-5 Years">1-5 Years Experience</option>
+            <option value="5+ Years">5+ Years Experience</option>
+            <option value="No Experience">No Experience in Field</option>
+          </select>
+          
           </div>
         )}
-
         {currentStep === 3 && (
-            <div className="major-selection">
-            <label htmlFor="major">Major</label>
-          <Select
-            id="major"
-            name="major"
-            value={selectedMajor}
-            onChange={handleMajorChange}
-            options={majorsOptions}
-            placeholder="Select your major"
-            />
-            {selectedMajor && selectedMajor.value === 'Other' && (
+          <div className="quote-selection">
+            <label htmlFor="quote">Favorite Quote</label>
             <input 
               type="text" 
-              name="customMajor" 
-              value={userInfo.customMajor} 
-              onChange={handleInputChange}
-              placeholder="Please specify your major"
-            />
-            )}
+              name="quote" 
+              value={formData.quote} 
+              onChange={handleInputChange} 
+              placeholder="Enter a quote that resonates with you" />
           </div>
         )}
+
         {currentStep === 4 && (
-            <div className="experience-selection">
-            <label htmlFor="experience">Experience</label>
-            <input type="text" name="experience" value={formData.experience} onChange={handleInputChange} />
+          <div className="aboutMe-selection">
+            <label htmlFor="aboutMe">About Me</label>
+            <textarea 
+              name="aboutMe" 
+              value={formData.aboutMe} 
+              onChange={handleInputChange} 
+              maxLength="500" // Ensures the word limit
+              placeholder="Tell others about yourself!"></textarea>
           </div>
         )}
-        {currentStep > 1 && currentStep < 6 && (
-            <button type="button" onClick={() => setCurrentStep(currentStep - 1)}>Back</button>
-          )}
-          {currentStep === 5 && (
+        {currentStep > 1 && (
+          <button type="button" onClick={() => setCurrentStep(currentStep - 1)}>Back</button>
+        )}
+        {currentStep < 4 && (
+          <button type="Next" onClick={() => setCurrentStep(currentStep + 1)}>Next</button>
+        )}
+
+          {currentStep === 4 && (
             <button type="submit">Submit</button>
           )}
-        />
 
-        <label
+        </form>
+        </div>
 
     );
   }
-  export default PageName;  
+  export default ProfileSetup;
