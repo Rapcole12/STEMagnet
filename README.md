@@ -21,6 +21,7 @@ To get started with the STEM Mentorship Program Website, please follow these ste
 
 ```bash
 git clone https://github.com/YourRepository/STEM-Mentorship-Website.git
+```
 
 ## We welcome contributions! Please read our CONTRIBUTING.md for information on how to get involved.
 
