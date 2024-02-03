@@ -1,6 +1,6 @@
 import React, {useState } from 'react';
 import Select from 'react-select';
-import './profileSetup.css';
+import '../style/profileSetup.css';
 
 function ProfileSetup() {
 
@@ -82,7 +82,7 @@ function ProfileSetup() {
   return (
     <div>
       <div className="header">
-        <h1>Set up your Profile</h1> {/* Add the header here */}
+        <h1 className="header-text">Set up your Profile</h1>
       </div>
       <div className="form-container"> {/* Wrap your form in this div */}
         <form onSubmit={handleSubmit} className="form-grid">
