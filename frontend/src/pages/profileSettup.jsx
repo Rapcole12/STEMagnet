@@ -101,12 +101,23 @@ function ProfileSetup() {
               placeholder="Gender"
               className="gender-dropdown"
             />
-            <input 
-              type="number" 
-              name="age" 
-              value={formData.age} 
+            <Select
+              name="mentorPreference"
+              value={majorsOptions.find(option => option.value === formData.mentorPreference)} // Ensure the value prop is correctly set
+              onChange={handleGenderChange} // Use the new handler for react-select
+              options={[
+                { value: 'Male', label: 'Male' },
+                { value: 'Female', label: 'Female' },
+                { value: 'No Preference', label: 'No Preference' }
+              ]} 
+              placeholder="Mentor Preference"
+            />
+            <input
+              type="number"
+              name="age"
+              value={formData.age}
               onChange={handleInputChange}
-              placeholder="Age" 
+              placeholder="Age"
               className="age-input"
               min="14"
               max="120"
@@ -116,11 +127,12 @@ function ProfileSetup() {
               value={selectedMajor}
               onChange={handleSelectChange}
               options={majorsOptions}
-              placeholder="Major"
+              placeholder="Area of Study"
               className="major-dropdown"
             />
           </div>
       )}
+        
         {currentStep === 2 && (
           <div className="experience-selection">
           <label htmlFor="experience">Experience</label>
@@ -150,6 +162,8 @@ function ProfileSetup() {
               name="quote" 
               value={formData.quote} 
               onChange={handleInputChange} 
+              
+              maxLength="500" 
               placeholder="Enter a quote that resonates with you" />
           </div>
         )}
