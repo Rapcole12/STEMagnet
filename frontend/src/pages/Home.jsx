@@ -3,10 +3,11 @@ import NavBar from '../components/Nav'
 
 function Home() {
   return (
-    <main>
-        <div>
-            <NavBar />
+    <main className='bg-white h-screen w-full'>
+        <div className="border-b border-black">
+            <NavBar/>
         </div>
+
     </main>
   )
 }
