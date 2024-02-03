@@ -1,5 +1,6 @@
-import './App.css';
-
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home"
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 import SignIn from "./pages/SignIn"
@@ -16,8 +17,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/SignIn" element={<SignIn />} />
-        <Route path="/" element={<SignUp />} />
+        <Route path="/SignUp" element={<SignUp />} />
         <Route path="/FindingMatchesPage" element={<FindingMatchesPage />} />
         <Route path="/Inbox" element={<Inbox />} />
         <Route path="/MenteeProfile" element={<MenteeProfile />} />
