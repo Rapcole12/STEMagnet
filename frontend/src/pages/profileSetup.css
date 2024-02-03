@@ -9,9 +9,12 @@ body {
   
   .form-container {
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     width: 90%;
     max-width: 500px;
   }
@@ -21,14 +24,34 @@ body {
     flex-direction: column;
   }
   
-  .gender-dropdown {
-    margin: 0.5rem 0;
+  
+  .form-group {
+    margin-bottom: 1rem; /* Adds space between form groups */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.age-input, .submit-btn {
     padding: 0.5rem;
-    font-size: 1rem;
+    margin: 0.5rem 0;
     border-radius: 5px;
     border: 1px solid #ccc;
-  }
-  
+}
+.form-control {
+    width: 100%; /* Full width */
+    padding: 0.5rem;
+    margin-top: 0.25rem; /* Space between label and input/select */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-  
-  
+/* Style the input to remove the number input spinner/ticker */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type='number'] {
+    -moz-appearance: textfield; /* Firefox */
+}

@@ -102,7 +102,7 @@ function ProfileSetup() {
               value={formData.age} 
               onChange={handleInputChange}
               placeholder="Age" 
-              className="form-Control"
+              className="age-input"
               min="14"
               max="120"
             />
