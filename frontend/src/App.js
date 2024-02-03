@@ -13,20 +13,17 @@ import SignUp from './pages/SignUp'
 
 
 function App() {
-  return (<BrowserRouter><Routes>
-          <Route path = '/' element =
-           {
-    <Home />
-           } />
-        <Route path="/SignIn
-             ' element={<SignIn />} /' < Route path = '/SignUp' element =
-           {
-    <SignUp />
-           } />
-        <Route path="/profileSettup ' element={<settUp />} /'
-
-               < /Routes>
-    </BrowserRouter>);
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={
+    <Home />} />
+        <Route path="/SignIn' element={<SignIn />} /'
+        <Route path='/SignUp' element={
+    <SignUp />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
