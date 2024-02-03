@@ -42,6 +42,13 @@ function ProfileSettup = () => {
     ]
   ];
 
+const handleMajorChange = (selectedOption) => {
+    setSelectedMajor(selectedOption);
+    // if other is selected, 
+    if(selectedOption.value === 'Other') {
+        setFormData({ ...formData, major: '' });
+        // NOTE: CHECK IF THIS IS RIGHT
+    };
 
   const handleButtonClick = (value) => {
     setUserInfo({ ...userInfo, gender: value });
@@ -104,12 +111,23 @@ function ProfileSettup = () => {
         {currentStep === 3 && (
             <div className="major-selection">
             <label htmlFor="major">Major</label>
-            <input 
-                type="text" 
-                name="major" 
-                value={formData.major} 
-                onChange={handleInputChange}
+          <Select
+            id="major"
+            name="major"
+            value={selectedMajor}
+            onChange={handleMajorChange}
+            options={majorsOptions}
+            placeholder="Select your major"
             />
+            {selectedMajor && selectedMajor.value === 'Other' && (
+            <input 
+              type="text" 
+              name="customMajor" 
+              value={userInfo.customMajor} 
+              onChange={handleInputChange}
+              placeholder="Please specify your major"
+            />
+            )}
           </div>
         )}
         {currentStep === 4 && (
