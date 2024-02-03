@@ -51,7 +51,10 @@ function ProfileSetup() {
     setFormData({ ...formData, gender: value });
     setCurrentStep(currentStep + 1); // Move to the next step
   };
-
+  const handleGenderChange = selectedOption => {
+    // Assuming gender is stored directly in formData
+    setFormData({ ...formData, gender: selectedOption.value });
+};
   // handles when a user clicks a value from any dropdown
   // \note: Some dropdowns may need user input while others are restricted to a set of values
   const handleInputChange = (event) => {
@@ -76,8 +79,11 @@ function ProfileSetup() {
     
 
 
-    return (
-      
+  return (
+    <div>
+      <div className="header">
+        <h1>Set up your Profile</h1> {/* Add the header here */}
+      </div>
       <div className="form-container"> {/* Wrap your form in this div */}
         <form onSubmit={handleSubmit} className="form-grid">
 
@@ -85,10 +91,9 @@ function ProfileSetup() {
             <div className="input-group">
             <Select
               name="gender"
-              value={formData.gender}
-              onChange={handleInputChange}
+              value={majorsOptions.find(option => option.value === formData.gender)} // Ensure the value prop is correctly set
+              onChange={handleGenderChange} // Use the new handler for react-select
               options={[
-                { value: '', label: 'Select Gender' },
                 { value: 'Male', label: 'Male' },
                 { value: 'Female', label: 'Female' },
                 { value: 'Other', label: 'Other' }
@@ -160,19 +165,21 @@ function ProfileSetup() {
               placeholder="Tell others about yourself!"></textarea>
           </div>
         )}
-        {currentStep > 1 && (
-          <button type="button" onClick={() => setCurrentStep(currentStep - 1)}>Back</button>
-        )}
-        {currentStep < 4 && (
-          <button type="Next" onClick={() => setCurrentStep(currentStep + 1)}>Next</button>
-        )}
+       {currentStep > 1 && (
+  <button type="button" onClick={() => setCurrentStep(currentStep - 1)} className="back-btn">Back</button>
+)}
+{currentStep < 4 && (
+  <button type="button" onClick={() => setCurrentStep(currentStep + 1)} className="next-btn">Next</button>
+)}
 
           {currentStep === 4 && (
-            <button type="submit">Submit</button>
+            <button type="submit" className="submit-btn">Submit</button>
           )}
 
         </form>
         </div>
+        </div>
+
 
     );
   }
