@@ -35,7 +35,7 @@ Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 Project Link: [https://github.com/YourRepository/STEM-Mentorship-Website](https://github.com/YourRepository/STEM-Mentorship-Website)
 
 ### Acknowledgements
-- [Elijah Widener, Riker Wilson, Javier Ralat, Raph Rodriguez]
+- [Elijah Widener, Riker Wilson, Javier Ra, Raph Rodriguez]
 - [Mentors and Mentees who participate]
 - [Organizations supporting Women in STEM]
 
