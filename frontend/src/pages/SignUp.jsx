@@ -93,7 +93,7 @@ function SignUp() {
                         </p>
                         <input
                             className="pl-2 border border-black text-[14px] font-semibold w-full h-[40px] rounded-xl"
-                            type="text"
+                            type="password"
                             onChange={(e) => setPassword(e.target.value)}
                             name="firstName"
                             id="firstName"
