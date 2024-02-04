@@ -1,5 +1,4 @@
 import React from 'react';
-import './ProfileCarousel.css'; // Make sure to import the CSS file
 
 const profiles = [
   // ... Add previous, current, and next profile data here
