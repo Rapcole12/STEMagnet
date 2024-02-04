@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import rapcolepic from "../assets/rapcole.jpeg";
+import inboxicon from "../assets/inboxicon.png";
 
 const Nav = () => {
     const profileImageUrl = rapcolepic;
+    const inboxImageUrl = inboxicon;
 
   return (
     <nav className="bg-white py-4 border-b border-black">
@@ -19,7 +21,16 @@ const Nav = () => {
             <Link to="/aboutus">About Us</Link>
           </li>
         </ul>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-7">
+        <div className="relative overflow-hidden h-7 w-7">
+            <a href="/inbox">
+            <img
+              src={inboxImageUrl}
+              alt="Inbox"
+              className="h-full w-full object-cover"
+            />
+            </a>
+          </div>
           <div className="relative overflow-hidden rounded-full h-10 w-10">
             <a href="/menteeProfile">
             <img
