@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import rapcolepic from "../assets/rapcole.jpeg";
+import defaultpic from "../assets/defaultpic.png";
 import inboxicon from "../assets/inboxicon.png";
 
 const Nav = () => {
-    const profileImageUrl = rapcolepic;
+    const profileImageUrl = defaultpic;
     const inboxImageUrl = inboxicon;
     const urlParams = new URLSearchParams(window.location.search);
     const userId = urlParams.get('userId');

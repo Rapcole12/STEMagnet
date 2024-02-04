@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import Nav_logged_in from "../components/Nav_logged_in";
-import rapcolepic from "../assets/rapcole.jpeg";
+import defaultpic from "../assets/defaultpic.png";
 
 function Inbox() {
   const [FirstName, setFirstName] = useState("");
@@ -37,13 +37,13 @@ function Inbox() {
             <div className="flex flex-col items-center">
               <div className="relative overflow-hidden rounded-full h-36 w-36 mt-4">
                 <img
-                  src={rapcolepic}
+                  src={defaultpic}
                   alt="Profile"
                   className="h-full w-full object-cover"
                 />
               </div>
               <p className="text-[#333333] font-semibold mt-2">Raphael Rodriguez</p>
-              <p className="text-[#666666] text-[12px]">[User Type]</p>
+              <p className="text-[#666666] text-[12px]">Mentee</p>
 
               <div className="flex flex-col mt-4">
             <label htmlFor="bio" className="text-[12px] mb-1">
