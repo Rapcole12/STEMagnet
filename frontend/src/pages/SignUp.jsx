@@ -4,6 +4,7 @@ import StemMagnetTransparent from "../assets/stemagentTransparent.png"
 import { useSnackbar } from "notistack"
 import axios from 'axios'
 
+
 function SignUp() {
 
   const [FirstName, setFirstName] = useState('')
@@ -148,9 +149,9 @@ function SignUp() {
                 </div>
                 <div className="pl-8">
                     <li className="sm:mx-auto items-center hover:bg-[#E0D9F1] w-[120px] h-[38px] flex bg-[#C79CFC] font-semibold rounded-full border border-black">
-                        <Link to="/SignIn" className="mx-auto block text-black" onClick={handleData}>
+                        <button to="/SignIn" className="mx-auto block text-black" onClick={handleData}>
                             Sign Up
-                        </Link>
+                        </button>
                     </li>
                 </div>
 
