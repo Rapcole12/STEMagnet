@@ -16,7 +16,7 @@ const Nav = () => {
                 </div>
                 <div className="pr-4">
                     <li className="border border-black bg-black  rounded-lg text-white rounded pb-1 pt-1 pr-3 pl-3">
-                        <Link to="/SignUp">Sign Up</Link>
+                        <Link to="/">Sign Up</Link>
                     </li>
                 </div>
     

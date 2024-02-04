@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import NavBar from '../components/Nav'
 import StemMagnetTransparent from "../assets/stemagentTransparent.png"
+import { useSnackbar } from "notistack"
+import axios from 'axios'
 
 function SignUp() {
 
@@ -8,21 +10,34 @@ function SignUp() {
   const [LastName, setLastName] = useState('')
   const [Email, setEmail] = useState('')
   const [Password, setPassword] = useState('')
-  const [UserType, setUserType] = useState('')
+  const [TypeOfUser, setUserType] = useState('')
+  const { enqueueSnackbar } = useSnackbar()
 
-  const handleData = () => {
+  const handleData = async () => {
 
-    const data = {
-        FirstName,
-        LastName, 
-        Email, 
-        Password, 
-        UserType
+
+    if(!FirstName || !LastName || !Email || !Password || !TypeOfUser)
+    {
+        enqueueSnackbar('All Boxes Must be Filled', {variant: 'info'})
     }
+    else
+    {
+            axios.post('http://localhost:3000/create_user',{
+                FirstName: FirstName,
+                LastName: LastName,
+                Email: Email,
+                Password: Password,
+                TypeOfUser:TypeOfUser
+            }).then(() => {
+                enqueueSnackbar('User Created Successfully',  {variant: 'success'})
+                window.location.href = '/ProfileSettup';
+            }).catch((error) => {
+                console.error('Error Creating User', error)
+                enqueueSnackbar(`ERROR OCCURED -> ${error}`, {variant: 'error'})
+            })
 
+    }
   }
-
-
 
   return (
     <main className="h-screen overflow-y-hidden">
@@ -106,7 +121,7 @@ function SignUp() {
                             className="form-radio h-4 w-4"
                             name="accountType"
                             onChange={(e) => setUserType(e.target.value)}
-                            value="businessOwner"
+                            value="mentee"
                         />
                         <span className="ml-2 mr-5 text-[12px]">Mentee</span>
                     </label>
@@ -117,7 +132,7 @@ function SignUp() {
                             className="form-radio h-4 w-4"
                             name="accountType"
                             onChange={(e) => setUserType(e.target.value)}
-                            value="client"
+                            value="mentor"
                             />
                             <span className="ml-2 text-[12px]">Mentor</span>
                     </label>
