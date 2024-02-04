@@ -5,6 +5,7 @@ import Nav_logged_in from "../components/Nav_logged_in";
 import rapcolepic from "../assets/rapcole.jpeg";
 
 function MenteeProfile() {
+function MenteeProfile() {
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
   const [Email, setEmail] = useState("");
