@@ -32,18 +32,18 @@ function SignIn() {
             </div> 
 
             <div class="bg-white-500">
-                <h1 class="text-[20px] ml-8 mt-2 font-semibold text-[#333333]">
+                <h1 class="text-[24px] ml-8 mt-2 font-semibold text-[#333333]">
                     Log In
                 </h1>
 
-                <p class="pl-8 text-[12px] text-[#666666]">
+                <p class="pl-8 text-[20px] text-[#666666]">
                     Welcome Back! 
                 </p>
 
                 <div class="">                       
                         
                     <div class="ml-8 ">
-                        <p class="mt-4 text-[12px] mb-1">
+                        <p class="mt-4 text-[20px] mb-1">
                             Email       
                         </p>
                         <input
@@ -55,7 +55,7 @@ function SignIn() {
                             />
                     
                         
-                        <p class="mt-4 text-[12px] mb-1">
+                        <p class="mt-4 text-[20px] mb-1">
                             Password       
                         </p>
                         <input
