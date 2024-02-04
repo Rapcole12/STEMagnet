@@ -36,7 +36,7 @@ function SignUp() {
                 window.location.href = `/ProfileSettup?userId=${userId}`;
             }).catch((error) => {
                 console.error('Error Creating User', error)
-                enqueueSnackbar(`ERROR OCCURED -> ${error}`, {variant: 'error'})
+                enqueueSnackbar(`ERROR OCCURED -> ${error.response.data.message}`, {variant: 'error'})
             })
 
     }
