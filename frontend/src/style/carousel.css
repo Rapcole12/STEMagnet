@@ -71,7 +71,7 @@
   height: 300px; /* Adjust based on your preference */
 }
 
-.profile-card img {
+.profile-card .img {
   width: 100%;
   height: 100%;
   object-fit: cover;

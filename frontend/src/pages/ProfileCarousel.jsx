@@ -46,10 +46,10 @@ const ProfileCarousel = () => {
       <Nav />
       <div className="carousel-container">
         <div className="profile-card-container">
-          <img src={rejectButtonImageUrl} alt="Reject" className="profile-side reject-side" onClick={handleReject} />
+          <img src={rejectButtonImageUrl} alt="Reject" className="img profile-side reject-side" onClick={handleReject} />
           <div className={`profile-card ${animation}`}>
             <div className="profile-image-container">
-              <img src={profiles[currentIndex].image} alt={profiles[currentIndex].name} />
+              <img class="img" src={profiles[currentIndex].image} alt={profiles[currentIndex].name} />
               <div className="profile-description">
                 <h2 class="h2">{profiles[currentIndex].name}</h2>
                 <p class="p">{profiles[currentIndex].description}</p>
@@ -57,7 +57,7 @@ const ProfileCarousel = () => {
             </div>
             <div className="view-resume" onClick={handleViewResume}>View Resume</div>
           </div>
-          <img src={connectButtonImageUrl} alt="Connect" className="profile-side connect-side" onClick={handleConnect} />
+          <img class="img" src={connectButtonImageUrl} alt="Connect" className="profile-side connect-side" onClick={handleConnect} />
         </div>
       </div>
     </>
