@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Nav from "../components/Nav";
+import Nav_logged_in from "../components/Nav_logged_in";
+import rapcolepic from "../assets/rapcole.jpeg";
 
-function SignUp() {
+function Inbox() {
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
   const [Email, setEmail] = useState("");
-  const [Password, setPassword] = useState("");
   const [UserType, setUserType] = useState("");
-  const [gender, setGender] = useState("");
-  const [age, setAge] = useState("");
-  const [dob, setDob] = useState("");
   const [pronouns, setPronouns] = useState("");
-  const [degree, setDegree] = useState("");
-  const [experience, setExperience] = useState("");
   const [profilePicture, setProfilePicture] = useState(""); // Store image URL or data here
   const [bio, setBio] = useState("");
 
@@ -21,14 +18,8 @@ function SignUp() {
       FirstName,
       LastName,
       Email,
-      Password,
       UserType,
-      gender,
-      age,
-      dob,
       pronouns,
-      degree,
-      experience,
       profilePicture,
       bio,
     };
@@ -36,135 +27,64 @@ function SignUp() {
   };
 
   return (
-    <main className="">
-      <header>
-        <div className="grid grid-cols-3">
-          <div className="bg-[#7382E7] w-[1/6] mx">
-            {/* insert Image here */}
-            {/* add an image uploader here */}
-          </div>
-
-          <div className="bg-white-500">
-            <h1 className="text-[20px] ml-4 mt-2 font-semibold text-[#333333]">
-              Profile Page
-            </h1>
-
-            <p className="ml-4 text-[12px] text-[#666666]"></p>
-
-            <div className="grid grid-cols-2">
-              <div>
-                <p className="mt-4 text-[12px] mb-1">First Name</p>
-                <input
-                  className="border border-black text-[14px] font-semibold ml-2 w-[160px] h-[40px] rounded-xl"
-                  type="text"
-                  onChange={(e) => setFirstName(e.target.value)}
-                  name="firstName"
-                  id="firstName"
+    <main className="bg-gradient-to-r from-purple-400 to-violet-800 w-full h-screen">
+      <div>
+        <Nav_logged_in/>
+      </div>
+      <div class="mr-9">
+        <div className="shadow-lg bg-white rounded-lg grid grid-cols-2 gap-4 w-full h-[580px] border border-black ml-4 mt-4 mr-4 ">
+          <div className="w-2/3 mx border-r border-black">
+            <div className="flex flex-col items-center">
+              <div className="relative overflow-hidden rounded-full h-36 w-36 mt-4">
+                <img
+                  src={rapcolepic}
+                  alt="Profile"
+                  className="h-full w-full object-cover"
                 />
               </div>
-              <div>
-                <p className="mt-4 text-[12px] mb-1">Last Name</p>
-                <input
-                  className="border border-black text-[14px] font-semibold ml-2 w-[160px] h-[40px] rounded-xl"
-                  type="text"
-                  onChange={(e) => setLastName(e.target.value)}
-                  name="lastName"
-                  id="lastName"
-                />
+              <p className="text-[#333333] font-semibold mt-2">Raphael Rodriguez</p>
+              <p className="text-[#666666] text-[12px]">[User Type]</p>
+
+              <div className="flex flex-col mt-4">
+            <label htmlFor="bio" className="text-[12px] mb-1">
+              Bio
+            </label>
+            <textarea
+              className="resize-none mb-2 border border-black text-[14px] font-semibold p-2 rounded-xl"
+              onChange={(e) => setBio(e.target.value)}
+              name="bio"
+              id="bio"
+              rows={4} // Specify the number of rows
+              />
               </div>
             </div>
+          </div>
 
 
-<div className="grid grid-cols-2">
-  <div>
-    <p className="mt-4 text-[12px] mb-1">Gender</p>
-    <input
-      className="border border-black text-[14px] font-semibold ml-2 w-[160px] h-[40px] rounded-xl"
-      type="text"
-      onChange={(e) => setGender(e.target.value)}
-      name="gender"
-      id="gender"
-    />
-  </div>
-  <div>
-    <p className="mt-4 text-[12px] mb-1">Age</p>
-    <input
-      className="border border-black text-[14px] font-semibold ml-2 w-[160px] h-[40px] rounded-xl"
-      type="number"
-      onChange={(e) => setAge(e.target.value)}
-      name="age"
-      id="age"
-    />
-  </div>
-</div>
+          <div className="flex flex-col items-center bg-white-500 gap-8 mr-20 -ml-20">
+            <h1 className="text-[20px] mt-2 font-semibold text-[#333333]">
+              Inbox
+            </h1>
 
-<div>
-  <p className="mt-4 text-[12px] mb-1">Date of Birth (DOB)</p>
-  <input
-    className="border border-black text-[14px] font-semibold ml-2 w-[160px] h-[40px] rounded-xl"
-    type="date"
-    onChange={(e) => setDob(e.target.value)}
-    name="dob"
-    id="dob"
-  />
-</div>
+              <div className="flex flex-col w-full">
+                <p className="mt-4 w-full h-[50px] border border-black text-[14px] font-semibold p-2">
+                test
+                </p>
+              </div>
+              <div className="flex flex-col w-full">
+                <p className="w-full h-[50px] border border-black text-[14px] font-semibold p-2">
+                test
+                </p>
+              </div>
 
-<div>
-  <p className="mt-4 text-[12px] mb-1">Pronouns</p>
-  <input
-    className="border border-black text-[14px] font-semibold ml-2 w-[160px] h-[40px] rounded-xl"
-    type="text"
-    onChange={(e) => setPronouns(e.target.value)}
-    name="pronouns"
-    id="pronouns"
-  />
-</div>
-
-<div>
-  <p className="mt-4 text-[12px] mb-1">Degree</p>
-  <input
-    className="border border-black text-[14px] font-semibold ml-2 w-[160px] h-[40px] rounded-xl"
-    type="text"
-    onChange={(e) => setDegree(e.target.value)}
-    name="degree"
-    id="degree"
-  />
-</div>
-
-<div>
-  <p className="mt-4 text-[12px] mb-1">Experience</p>
-  <input
-    className="border border-black text-[14px] font-semibold ml-2 w-[160px] h-[40px] rounded-xl"
-    type="text"
-    onChange={(e) => setExperience(e.target.value)}
-    name="experience"
-    id="experience"
-  />
-</div>
-
-<div>
-  <p className="mt-4 text-[12px] mb-1">Profile Picture</p>
-  {/* You can add an image uploader component here */}
-</div>
-
-<div>
-  <p className="mt-4 text-[12px] mb-1">Bio</p>
-  <textarea
-    className="border border-black text-[14px] font-semibold ml-2 w-[400px] h-[100px] rounded-xl"
-    onChange={(e) => setBio(e.target.value)}
-    name="bio"
-    id="bio"
-  />
-</div>
-
-{/* ... (rest of your code) */}
-
+            {/* Add more fields here */}
+            {/* Pronouns, Degree, Experience, etc. */}
           </div>
         </div>
-      </header>
-      <button onClick={handleData}>Submit</button>
+        </div>
+      
     </main>
   );
 }
 
-export default SignUp;
+export default Inbox;
