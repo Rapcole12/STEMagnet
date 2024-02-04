@@ -11,6 +11,7 @@ import MentorProfile from "./pages/mentorProfile"
 import ProfileSettup from "./pages/profileSettup"
 import Quotes from "./pages/quotes"
 import ProfileCarousel from "./pages/ProfileCarousel";
+import AboutUs from "./pages/aboutUs";
 
 
 function App() {
@@ -28,6 +29,8 @@ function App() {
         <Route path="/ProfileSettup" element={<ProfileSettup />} />
         <Route path="/Quotes" element={<Quotes />} />
         <Route path="/ProfileCarousel" element={<ProfileCarousel />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
+
       </Routes>
     </BrowserRouter>
   );
