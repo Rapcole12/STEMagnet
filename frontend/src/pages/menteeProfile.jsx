@@ -6,19 +6,19 @@ import rapcolepic from "../assets/rapcole.jpeg";
 import axios from "axios"
 
 function MenteeProfile() {
-  const [FirstName, setFirstName] = useState('');
-  const [LastName, setLastName] = useState('');
-  const [Email, setEmail] = useState('');
-  const [Password, setPassword] = useState('');
-  const [UserType, setUserType] = useState('');
-  const [gender, setGender] = useState('');
-  const [age, setAge] = useState('');
-  const [dob, setDob] = useState('');
-  const [pronouns, setPronouns] = useState('');
-  const [degree, setDegree] = useState('');
-  const [experience, setExperience] = useState('');
-  const [profilePicture, setProfilePicture] = useState(''); // Store image URL or data here
-  const [bio, setBio] = useState('');
+  const [FirstName, setFirstName] = useState("");
+  const [LastName, setLastName] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+  const [UserType, setUserType] = useState("");
+  const [gender, setGender] = useState("");
+  const [age, setAge] = useState("");
+  const [dob, setDob] = useState("");
+  const [pronouns, setPronouns] = useState("");
+  const [degree, setDegree] = useState("");
+  const [experience, setExperience] = useState("");
+  const [profilePicture, setProfilePicture] = useState(""); // Store image URL or data here
+  const [bio, setBio] = useState("");
 
   const urlParams = new URLSearchParams(window.location.search);
   const userId = urlParams.get('userId');
