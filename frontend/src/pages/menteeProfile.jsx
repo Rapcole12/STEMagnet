@@ -83,22 +83,24 @@ function MenteeProfile() {
               <div className="flex flex-col">
                 <p className="mt-4 text-[12px] mb-1">First Name</p>
                 <input
-                  className="border border-black text-[14px] font-semibold p-2 rounded-xl"
+                  className="placeholder-gray raph border border-black text-[14px] font-semibold p-2 rounded-xl"
                   type="text"
                   onChange={(e) => setFirstName(e.target.value)}
                   name="firstName"
                   id="firstName"
+                  placeholder={FirstName}
                 />
               </div>
 
               <div className="flex flex-col mt-4">
                 <p className="text-[12px] mb-1">Last Name</p>
                 <input
-                  className="border border-black text-[14px] font-semibold p-2 rounded-xl"
+                  className="placeholder-gray border border-black text-[14px] font-semibold p-2 rounded-xl"
                   type="text"
                   onChange={(e) => setLastName(e.target.value)}
                   name="lastName"
                   id="lastName"
+                  placeholder={LastName}
                 />
               </div>
 
@@ -113,7 +115,7 @@ function MenteeProfile() {
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4 mt-4">
+              <div className="placeholder-gray grid grid-cols-2 gap-4 mt-4">
                 <div className="flex flex-col">
                   <label htmlFor="gender" className="text-[12px] mb-1">
                     Gender
@@ -125,6 +127,7 @@ function MenteeProfile() {
                     name="gender"
                     id="gender"
                     maxLength={50} // limit the input length
+                    placeholder={gender}
                   />
                 </div>
                 <div className="flex flex-col">
@@ -132,13 +135,14 @@ function MenteeProfile() {
                     Age
                   </label>
                   <input
-                    className="border border-black text-[14px] font-semibold p-2 rounded-xl"
+                    className="placeholder-gray border border-black text-[14px] font-semibold p-2 rounded-xl"
                     type="number"
                     onChange={(e) => setAge(e.target.value)}
                     name="age"
                     id="age"
                     min={0}
                     max={99}
+                    placeholder={age}
                   />
                   
                 </div>

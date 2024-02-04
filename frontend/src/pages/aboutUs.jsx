@@ -15,7 +15,7 @@ function AboutUs() {
             <h1 className="text-5xl text-[#333333] font-semibold mb-4 ml-8 mt-5">ABOUT US</h1>
 
             <div className="ml-8 mt-5">
-              <h2 className="text-[22px] font-semibold text-[#333333]">What is STEMAGENT?</h2>
+              <h2 className="text-[22px] font-semibold text-[#333333]">What is STEMAGNET?</h2>
               <p className="text-[18px] text-[#666666]">
               STEMAGNET is a website dedicated to promoting STEM (Science, Technology, Engineering, and Mathematics) education and empowering the next generation of innovators and problem solvers. Through our innovative swiping technique, mentees and mentors can connect faster than ever! Mentors, who are experienced experts in their respective fields, can choose mentees to guide and share their knowledge with. On the other hand, mentees have the opportunity to swipe and choose mentors who align with their interests and goals. STEMAGNET aims to facilitate mentorship relationships and provide a supportive community for individuals passionate about STEM, ultimately fostering skill development and inspiring future achievements in science and technology.
             </p>
