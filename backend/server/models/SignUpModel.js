@@ -22,6 +22,34 @@ const signupSchema = new Schema({
     type: String,
     required: true
   },
+  Gender: {
+    type: String,
+    require: false,
+  },
+  Age: {
+    type: String,
+    required: false,
+  },
+  Major: {
+    type: String,
+    required: false,
+  },
+  Experience: {
+    type: String,
+    required: false,
+  },
+  Quote: {
+    type: String, 
+    required: false
+  },
+  AboutMe: {
+    type: String, 
+    required: false
+  },
+  MentorPreference: {
+    type: String, 
+    required: false
+  }
 });
 
 export const signupUser = mongoose.model("Users", signupSchema);

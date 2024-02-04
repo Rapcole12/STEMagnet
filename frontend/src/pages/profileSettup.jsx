@@ -2,9 +2,53 @@
 import React, {useState } from 'react';
 import Select from 'react-select';
 import '../style/profileSetup.css';
+import { useSnackbar } from "notistack"
+import axios from 'axios'
 
 function ProfileSetup() {
+  const { enqueueSnackbar } = useSnackbar()
 
+  const handleData = () => {
+    const { gender, age, major, experience, customMajor, quote, aboutMe, mentorPreference } = formData;
+    const trueMajor = (major.length === 0 ? customMajor : major)
+    const data = {
+      gender, 
+      age, 
+      trueMajor, 
+      experience,
+      quote,
+      aboutMe,
+      mentorPreference
+    }
+
+    if(!data.gender || !data.age || !data.trueMajor || !data.experience || !data.quote || !data.aboutMe || !data.mentorPreference)
+    {
+      enqueueSnackbar('All Fields Must Be Filled In', {variant: 'info'})
+    }
+    else
+    {
+      const urlParams = new URLSearchParams(window.location.search);
+      const userId = urlParams.get('userId');
+
+      axios.put(`http://localhost:3000/create_user/${userId}`,{
+        Gender: data.gender,
+        Age: data.age,
+        Major: data.trueMajor,
+        Experience: data.experience,
+        Quote: data.quote,
+        AboutMe: data.aboutMe,
+        MentorPreference: data.mentorPreference
+    }).then(() => {
+        enqueueSnackbar('Profile Set Up Complete',  {variant: 'success'})
+        window.location.href = `/ProfileCarousel?userId=${userId}`;
+    }).catch((error) => {
+        console.error('Error Creating User', error)
+        enqueueSnackbar(`ERROR OCCURED -> ${error}`, {variant: 'error'})
+    })
+  }
+
+    
+  }
 
     const [currentStep, setCurrentStep] = useState(1);
     const [formData, setFormData] = useState({
@@ -55,7 +99,15 @@ function ProfileSetup() {
   const handleGenderChange = selectedOption => {
     // Assuming gender is stored directly in formData
     setFormData({ ...formData, gender: selectedOption.value });
-};
+    
+  };
+
+  const handleGenderOfMentor = selectedOption => {
+    // Assuming gender is stored directly in formData
+    setFormData({ ...formData, mentorPreference: selectedOption.value });
+    
+  };
+
   // handles when a user clicks a value from any dropdown
   // \note: Some dropdowns may need user input while others are restricted to a set of values
   const handleInputChange = (event) => {
@@ -105,7 +157,7 @@ function ProfileSetup() {
             <Select
               name="mentorPreference"
               value={majorsOptions.find(option => option.value === formData.mentorPreference)} // Ensure the value prop is correctly set
-              onChange={handleGenderChange} // Use the new handler for react-select
+              onChange={handleGenderOfMentor} // Use the new handler for react-select
               options={[
                 { value: 'Male', label: 'Male' },
                 { value: 'Female', label: 'Female' },
@@ -188,7 +240,7 @@ function ProfileSetup() {
 )}
 
           {currentStep === 4 && (
-            <button type="submit" className="submit-btn">Submit</button>
+            <button type="submit" className="submit-btn" onClick={handleData}>Submit</button>
           )}
 
         </form>
