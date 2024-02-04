@@ -1,17 +1,41 @@
 import React, {useState} from "react";
 import NavBar from '../components/Nav'
 import StemMagnetTransparent from "../assets/stemagentTransparent.png"
+import { useSnackbar } from "notistack"
+import axios from 'axios'
 
 function SignIn() {
 
   const [Email, setEmail] = useState('')
   const [Password, setPassword] = useState('')
+  const { enqueueSnackbar } = useSnackbar()
 
   const handleData = () => {
 
     const data = {
         Email, 
         Password, 
+    }
+
+    if(!data.Email || !data.Password)
+    {
+        enqueueSnackbar('Both Fields Must Be Filled', {variant: 'info'})
+    }
+    else
+    {
+        axios.post('http://localhost:3000/SignIn/authenticate', {
+            Email: data.Email,
+            Password: data.Password
+        })
+        .then((response) => {
+                const userId = response.data.userId; // Adjust this based on your response structure
+                enqueueSnackbar('Successfully Logged In',  {variant: 'success'})
+                window.location.href = `/ProfileCarousel?userId=${userId}`;
+        })
+        .catch((error) => {
+            console.error('Error Authenticating User', error)
+            enqueueSnackbar(`ERROR OCCURED -> ${error.message}`, {variant: 'error'})
+        })
     }
 
   }

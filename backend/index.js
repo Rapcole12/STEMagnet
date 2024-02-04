@@ -10,6 +10,7 @@ app.use(cors())
 app.use(express.json())
 app.use('/', signupRoute)
 
+
 mongoose.connect(process.env.mongoDBUserURL)
 .then(() => {
     console.log('App connected to User Database')
