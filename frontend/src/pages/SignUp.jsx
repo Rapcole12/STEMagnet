@@ -1,6 +1,9 @@
 import React, {useState} from "react";
 import NavBar from '../components/Nav'
 import StemMagnetTransparent from "../assets/stemagentTransparent.png"
+import { useSnackbar } from "notistack"
+import axios from 'axios'
+
 
 function SignUp() {
 
@@ -8,21 +11,36 @@ function SignUp() {
   const [LastName, setLastName] = useState('')
   const [Email, setEmail] = useState('')
   const [Password, setPassword] = useState('')
-  const [UserType, setUserType] = useState('')
+  const [TypeOfUser, setUserType] = useState('')
+  const { enqueueSnackbar } = useSnackbar()
 
-  const handleData = () => {
+  const handleData = async () => {
 
-    const data = {
-        FirstName,
-        LastName, 
-        Email, 
-        Password, 
-        UserType
+
+    if(!FirstName || !LastName || !Email || !Password || !TypeOfUser)
+    {
+        enqueueSnackbar('All Boxes Must be Filled', {variant: 'info'})
     }
+    else
+    {
 
+            axios.post('http://localhost:3000/create_user',{
+                FirstName: FirstName,
+                LastName: LastName,
+                Email: Email,
+                Password: Password,
+                TypeOfUser:TypeOfUser
+            }).then((response) => {
+                const userId = response.data.user._id; // Adjust this based on your response structure
+                enqueueSnackbar('User Created Successfully',  {variant: 'success'})
+                window.location.href = `/ProfileSettup?userId=${userId}`;
+            }).catch((error) => {
+                console.error('Error Creating User', error)
+                enqueueSnackbar(`ERROR OCCURED -> ${error}`, {variant: 'error'})
+            })
+
+    }
   }
-
-
 
   return (
     <main className="h-screen overflow-y-hidden">
@@ -32,7 +50,7 @@ function SignUp() {
         <div className="grid grid-cols-2 h-screen">
             <div class="pb-10 bg-gradient-to-r from-purple-400 to-violet-800 flex items-center justify-center">
                 <div className = "mx-auto justify-center items-center">
-                    <img className = "w-[325px] h-auto"src = {StemMagnetTransparent}/>
+                    <img className = "w-[600px] h-auto"src = {StemMagnetTransparent}/>
                 </div>
               
             </div> 
@@ -106,7 +124,7 @@ function SignUp() {
                             className="form-radio h-4 w-4"
                             name="accountType"
                             onChange={(e) => setUserType(e.target.value)}
-                            value="businessOwner"
+                            value="mentee"
                         />
                         <span className="ml-2 mr-5 text-[12px]">Mentee</span>
                     </label>
@@ -117,7 +135,7 @@ function SignUp() {
                             className="form-radio h-4 w-4"
                             name="accountType"
                             onChange={(e) => setUserType(e.target.value)}
-                            value="client"
+                            value="mentor"
                             />
                             <span className="ml-2 text-[12px]">Mentor</span>
                     </label>
@@ -133,7 +151,7 @@ function SignUp() {
                 </div>
                 <div className="pl-8">
                     <li className="sm:mx-auto items-center hover:bg-[#E0D9F1] w-[120px] h-[38px] flex bg-[#C79CFC] font-semibold rounded-full border border-black">
-                        <button className="mx-auto block text-black" onClick={handleData}>
+                        <button to="/SignIn" className="mx-auto block text-black" onClick={handleData}>
                             Sign Up
                         </button>
                     </li>

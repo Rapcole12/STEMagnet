@@ -10,6 +10,7 @@ import MenteeProfile from "./pages/menteeProfile"
 import MentorProfile from "./pages/mentorProfile"
 import ProfileSettup from "./pages/profileSettup"
 import Quotes from "./pages/quotes"
+import AboutUs from "./pages/aboutUs";
 import ProfileCarousel from "./pages/ProfileCarousel";
 
 
@@ -19,7 +20,9 @@ function App() {
       <Routes>
         <Route path="/" element={<SignUp />} />
         <Route path="/SignIn" element={<SignIn />} />
-        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/" element={<SignUp />} />
+        <Route path="/create_user"/>
+        <Route path="/create_user/:id"/>
         <Route path="/FindingMatchesPage" element={<FindingMatchesPage />} />
         <Route path="/Inbox" element={<Inbox />} />
         <Route path="/MenteeProfile" element={<MenteeProfile />} />
@@ -27,6 +30,8 @@ function App() {
         <Route path="/ProfileSettup" element={<ProfileSettup />} />
         <Route path="/Quotes" element={<Quotes />} />
         <Route path="/ProfileCarousel" element={<ProfileCarousel />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
+
       </Routes>
     </BrowserRouter>
   );

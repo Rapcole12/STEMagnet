@@ -3,6 +3,7 @@ import Nav from "../components/Nav.jsx";
 import '../style/carousel.css'; // Ensure you have the updated styles
 import elijah from '../assets/elijahphoto.jpg';
 
+
 const profiles = [
   { name: 'Alice', description: 'PROFILE ABOUT ME', image: elijah },
   { name: 'Bob', description: 'PROFILE ABOUT ME', image: elijah },
