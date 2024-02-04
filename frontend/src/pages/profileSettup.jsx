@@ -81,7 +81,7 @@ function ProfileSetup() {
 
 
   return (
-    <div>
+    <div class="body">
       <div className="header">
         <h1 className="header-text">Set up your Profile</h1>
       </div>

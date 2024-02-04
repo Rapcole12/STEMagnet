@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import NavBar from '../components/Nav';
+import Nav_logged_in from '../components/Nav_logged_in';
 import '../animations/quotes.css';
 
 const Quotes = () => {
@@ -32,7 +32,7 @@ const Quotes = () => {
   return (
     <div className={`h-screen transition-colors duration-1000 bg-white ${fade ? 'fade-to-black' : ''}`}>
       <div className="sticky top-0 border-b border-black">
-        <NavBar/>
+        <Nav_logged_in/>
       </div>
 
       <h1 className="fade-text font-100 text-[25px] pt-20 text-center">

@@ -20,7 +20,8 @@ function App() {
       <Routes>
         <Route path="/" element={<SignUp />} />
         <Route path="/SignIn" element={<SignIn />} />
-        <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/" element={<SignUp />} />
+        <Route path="/create_user"/>
         <Route path="/FindingMatchesPage" element={<FindingMatchesPage />} />
         <Route path="/Inbox" element={<Inbox />} />
         <Route path="/MenteeProfile" element={<MenteeProfile />} />

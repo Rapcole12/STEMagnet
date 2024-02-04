@@ -39,13 +39,13 @@ function SignUp() {
   };
 
   return (
-    <main className="">
+    <main className="bg-gradient-to-r from-purple-400 to-violet-800 w-full h-screen">
       <div>
         <Nav_logged_in/>
       </div>
-      <header>
-        <div className="grid grid-cols-2 gap-4 w-full">
-          <div className="bg-[#FFFFFF] w-[1/5] mx">
+      <div class="mr-9">
+        <div className="shadow-lg bg-white rounded-lg grid grid-cols-2 gap-4 w-full h-[580px] border border-black ml-4 mt-4 mr-4 ">
+          <div className="w-2/3 mx">
             <div className="flex flex-col items-center">
               <div className="relative overflow-hidden rounded-full h-36 w-36 mt-4">
                 <img
@@ -55,14 +55,14 @@ function SignUp() {
                 />
               </div>
               <p className="text-[#333333] font-semibold mt-2">Raphael Rodriguez</p>
-              <p className="text-[#666666] text-[12px]">Mentee</p>
+              <p className="text-[#666666] text-[12px]">[User Type]</p>
 
               <div className="flex flex-col mt-4">
             <label htmlFor="bio" className="text-[12px] mb-1">
               Bio
             </label>
             <textarea
-              className="border border-black text-[14px] font-semibold p-2 rounded-xl"
+              className="resize-none mb-2 border border-black text-[14px] font-semibold p-2 rounded-xl"
               onChange={(e) => setBio(e.target.value)}
               name="bio"
               id="bio"
@@ -73,9 +73,9 @@ function SignUp() {
           </div>
 
 
-          <div className="bg-white-500 gap-8">
-            <h1 className="text-[20px] ml-4 mt-2 font-semibold text-[#333333]">
-              Mentee Profile Page
+          <div className="bg-white-500 gap-8 mr-20">
+            <h1 className="text-[20px] mx-auto mt-2 font-semibold text-[#333333]">
+              Profile Page
             </h1>
 
             <p className="ml-4 text-[12px] text-[#666666]"></p>
@@ -140,16 +140,23 @@ function SignUp() {
                     min={0}
                     max={99}
                   />
+                  
                 </div>
+                
               </div>
-            </div>
+              <div class="mt-4 mx-auto ">
+              <button class="border border-black mt-4 bg-[#C79CFC] hover:bg-[#E0D9F1] text-white font-bold py-2 px-4 rounded-full w-full" onClick={handleData}>
+                Submit
+              </button>
+              </div>
 
+            </div>
             {/* Add more fields here */}
             {/* Pronouns, Degree, Experience, etc. */}
           </div>
         </div>
-      </header>
-      <button onClick={handleData}>Submit</button>
+        </div>
+      
     </main>
   );
 }
