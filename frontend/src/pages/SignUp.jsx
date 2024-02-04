@@ -135,9 +135,9 @@ function SignUp() {
                 </div>
                 <div className="pl-8">
                     <li className="sm:mx-auto items-center hover:bg-[#E0D9F1] w-[120px] h-[38px] flex bg-[#C79CFC] font-semibold rounded-full border border-black">
-                        <Link to="/profileSettup" className="mx-auto block text-black" onClick={handleData}>
+                        <button className="mx-auto block text-black" onClick={handleData}>
                             Sign Up
-                        </Link>
+                        </button>
                     </li>
                 </div>
 
