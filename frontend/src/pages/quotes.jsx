@@ -10,6 +10,9 @@ const Quotes = () => {
   const quoteFirst = "Raphael ";
   const quoteLast = "Rodriguez";
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const userId = urlParams.get('userId');
+
   // Function to handle content visibility after 5 seconds
   const handleContentVisibility = () => {
     setTimeout(() => {
@@ -52,7 +55,7 @@ const Quotes = () => {
       {/* Apply invisible class conditionally */}
       <div className={`pt-8 ${showContent ? '' : 'invisible'}`}>
       <li className="mx-auto animate-pulse items-center hover:bg-[#E0D9F1] w-[200px] h-[40px] flex bg-[#ffffff] font-semibold rounded-full border border-black">
-        <a href="/mentorProfile/" className="w-full h-full flex items-center justify-center text-black text-[12px]">
+        <a href={`/mentorProfile?userId=${userId}`} className="w-full h-full flex items-center justify-center text-black text-[12px]">
           Connect with {quoteFirst}
         </a>
       </li>
