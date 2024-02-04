@@ -50,7 +50,8 @@ const ProfileCarousel = () => {
   return (
     
     <>
-    <div>
+      <div className="fixed top-0 w-full z-10">
+
         <Nav_logged_in/>
       </div>
       <div className="carousel-container">
