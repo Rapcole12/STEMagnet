@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Nav from "../components/Nav.jsx";
+import Nav_logged_in from "../components/Nav_logged_in";
 import '../style/carousel.css'; // Ensure you have the updated styles
 import elijah from '../assets/elijahphoto.jpg';
 
@@ -42,8 +42,11 @@ const ProfileCarousel = () => {
   };
 
   return (
+    
     <>
-      <Nav />
+    <div>
+        <Nav_logged_in/>
+      </div>
       <div className="carousel-container">
         <div className="profile-card-container">
           <img src={rejectButtonImageUrl} alt="Reject" className="img profile-side reject-side" onClick={handleReject} />
