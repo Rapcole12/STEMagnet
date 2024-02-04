@@ -5,19 +5,19 @@ import Nav_logged_in from "../components/Nav_logged_in";
 import rapcolepic from "../assets/rapcole.jpeg";
 
 function MenteeProfile() {
-  const [FirstName, setFirstName] = useState('');
-  const [LastName, setLastName] = useState('');
-  const [Email, setEmail] = useState('');
-  const [Password, setPassword] = useState('');
-  const [UserType, setUserType] = useState('');
-  const [gender, setGender] = useState('');
-  const [age, setAge] = useState('');
-  const [dob, setDob] = useState('');
-  const [pronouns, setPronouns] = useState('');
-  const [degree, setDegree] = useState('');
-  const [experience, setExperience] = useState('');
-  const [profilePicture, setProfilePicture] = useState(''); // Store image URL or data here
-  const [bio, setBio] = useState('');
+  const [FirstName, setFirstName] = useState("");
+  const [LastName, setLastName] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+  const [UserType, setUserType] = useState("");
+  const [gender, setGender] = useState("");
+  const [age, setAge] = useState("");
+  const [dob, setDob] = useState("");
+  const [pronouns, setPronouns] = useState("");
+  const [degree, setDegree] = useState("");
+  const [experience, setExperience] = useState("");
+  const [profilePicture, setProfilePicture] = useState(""); // Store image URL or data here
+  const [bio, setBio] = useState("");
 
   const handleData = () => {
     const data = {
