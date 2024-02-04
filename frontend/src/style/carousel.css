@@ -89,7 +89,7 @@
   text-align: center;
 }
 
-h2, p {
+.h2, .p {
   margin: 0; /* Remove default margins */
   padding: 5px 0; /* Add some spacing */
   color: white; /* Light text color for readability */

@@ -51,8 +51,8 @@ const ProfileCarousel = () => {
             <div className="profile-image-container">
               <img src={profiles[currentIndex].image} alt={profiles[currentIndex].name} />
               <div className="profile-description">
-                <h2>{profiles[currentIndex].name}</h2>
-                <p>{profiles[currentIndex].description}</p>
+                <h2 class="h2">{profiles[currentIndex].name}</h2>
+                <p class="p">{profiles[currentIndex].description}</p>
               </div>
             </div>
             <div className="view-resume" onClick={handleViewResume}>View Resume</div>
