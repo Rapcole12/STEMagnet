@@ -4,6 +4,7 @@ import StemMagnetTransparent from "../assets/stemagentTransparent.png";
 
 function AboutUs() {
   return (
+    //sample comment
     <main className="h-screen">
       <div className="sticky top-0 border-b border-black">
         <NavBar />
