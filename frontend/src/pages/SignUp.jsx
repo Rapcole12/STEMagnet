@@ -22,15 +22,17 @@ function SignUp() {
     }
     else
     {
+
             axios.post('http://localhost:3000/create_user',{
                 FirstName: FirstName,
                 LastName: LastName,
                 Email: Email,
                 Password: Password,
                 TypeOfUser:TypeOfUser
-            }).then(() => {
+            }).then((response) => {
+                const userId = response.data.user._id; // Adjust this based on your response structure
                 enqueueSnackbar('User Created Successfully',  {variant: 'success'})
-                window.location.href = '/ProfileSettup';
+                window.location.href = `/ProfileSettup?userId=${userId}`;
             }).catch((error) => {
                 console.error('Error Creating User', error)
                 enqueueSnackbar(`ERROR OCCURED -> ${error}`, {variant: 'error'})

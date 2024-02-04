@@ -20,7 +20,14 @@ router.post('/create_user', async(req, res) => {
             LastName: req.body.LastName, 
             Email: req.body.Email, 
             Password: req.body.Password,
-            TypeOfUser: req.body.TypeOfUser
+            TypeOfUser: req.body.TypeOfUser,
+            Gender: req.body.Gender,
+            Age: req.body.Age, 
+            Major: req.body.Major, 
+            Experience: req.body.Experience,
+            Quote: req.body.Quote,
+            AboutMe: req.body.AboutMe,
+            MentorPreference: req.body.MentorPreference
         }
         
         const SignUpTheUser = await signupUser.create(newUser);
@@ -29,6 +36,18 @@ router.post('/create_user', async(req, res) => {
         console.error(error);
         return res.status(500).json({ success: false, message: 'Internal Server Error', error: error.message });
     }
+})
+
+router.put('/create_user/:id', async(req, res) => {
+    const { id } = req.params
+
+    const result = await signupUser.findByIdAndUpdate(id, req.body)
+
+    if(!result){
+        return res.status(404).json({message: "User not Found"})
+    }
+
+    return res.status(200).send({message: "User Updated Successfully"})
 })
 
 export default router;
