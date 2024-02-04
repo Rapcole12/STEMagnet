@@ -11,7 +11,7 @@ const profiles = [
 ];
 
 const connectButtonImageUrl = 'https://media.istockphoto.com/id/1329322797/vector/opposite-magnets-white-black.jpg?s=612x612&w=0&k=20&c=yyDKgtRkOEGPki6-lDIBn-uQDUT65FSS-Dbp1yEMARQ=';
-const rejectButtonImageUrl = 'https://toppng.com/uploads/preview/red-x-in-circle-x-ico-11563249170jvl0jhe7df.png';
+const rejectButtonImageUrl = '../assets/reject_icon.png';
 
 const ProfileCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

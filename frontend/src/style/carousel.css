@@ -41,7 +41,7 @@
 }
 
 .reject-side {
-  background-image: url('https://toppng.com/uploads/preview/red-x-in-circle-x-ico-11563249170jvl0jhe7df.png');
+  background-image: url('../assets/reject_icon.png');
   background-size: contain;
   margin-right: 8px;
   padding: 75px; /* Add some padding to the image */
