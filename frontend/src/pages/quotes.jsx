@@ -44,7 +44,7 @@ const Quotes = () => {
           {quoteSelected}
         </h1>
 
-        <h1 className="pt-10 text-[18px] text-white text-center">
+        <h1 className="p-2pt-10 text-[18px] text-white text-center">
           -{quoteFirst} {quoteLast}
         </h1>
       </div>
@@ -58,7 +58,7 @@ const Quotes = () => {
         </li>
         <div class="pt-2">
         <li className="mx-auto items-center hover:bg-[#8F8F8F] w-[150px] h-[30px] flex bg-[#C1C1C1] font-semibold rounded-full border border-black">
-          <button className="mx-auto block text-black text-[12px]">
+          <button className="p-2 mx-auto block text-black text-[12px]">
             Discover more quotes
           </button>
         </li>
