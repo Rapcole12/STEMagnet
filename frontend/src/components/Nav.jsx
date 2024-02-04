@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Nav = () => {
 
   return (
-    <div className="text-[#000000] py-4 bg-white w-full">
+    <div className="bg-white py-4 border-b border-black">
         <ul className = "flex justify-between">
             <div>
 
