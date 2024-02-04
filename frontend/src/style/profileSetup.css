@@ -1,7 +1,7 @@
 .body {
     margin: 0;
     height: 100vh;
-    background: linear-gradient(to right, #FF7E5F, #E2B0FF);
+    background: linear-gradient(to right, #7C3AED, #ffffff);
     display: flex;
     font-family: 'Poppins', sans-serif;
     justify-content: center;
@@ -76,7 +76,7 @@ button {
 }
 
 .next-btn {
-    background-color: blue;
+    background-color: #C79CFC;
     color: white;
 }
 
