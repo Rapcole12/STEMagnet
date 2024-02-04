@@ -5,13 +5,16 @@ const router = express.Router();
 //Route to Post The Data to DataBase
 router.post('/create_user', async(req, res) => {
     try{
-        console.log(req.body)
         if(!req.body.FirstName || !req.body.LastName || !req.body.Email || !req.body.Password || !req.body.TypeOfUser)
         {
             return res.status(400).send({
                 message:
                 "Send all required fields: First Name, LastName, Email, Password, and UserType",
             })
+        }
+        const existingUser = await signupUser.findOne({ Email: req.body.Email });
+        if (existingUser) {
+            return res.status(400).json({ success: false, message: 'Email already in use' });
         }
         const newUser = {
             FirstName: req.body.FirstName,

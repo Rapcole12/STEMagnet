@@ -34,7 +34,7 @@ function SignIn() {
         })
         .catch((error) => {
             console.error('Error Authenticating User', error)
-            enqueueSnackbar(`ERROR OCCURED -> ${error.message}`, {variant: 'error'})
+            enqueueSnackbar(`ERROR OCCURED -> ${error.response.data.message}`, {variant: 'error'})
         })
     }
 
