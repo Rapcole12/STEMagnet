@@ -49,7 +49,7 @@ const ProfileCarousel = () => {
           <img src={rejectButtonImageUrl} alt="Reject" className="img profile-side reject-side" onClick={handleReject} />
           <div className={`profile-card ${animation}`}>
             <div className="profile-image-container">
-              <img class="img" src={profiles[currentIndex].image} alt={profiles[currentIndex].name} />
+              <img class="img " src={profiles[currentIndex].image} alt={profiles[currentIndex].name} />
               <div className="profile-description">
                 <h2 class="h2">{profiles[currentIndex].name}</h2>
                 <p class="p">{profiles[currentIndex].description}</p>

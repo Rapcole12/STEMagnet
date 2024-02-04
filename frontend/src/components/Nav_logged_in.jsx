@@ -12,7 +12,7 @@ const Nav = () => {
       <div className="container mx-auto flex justify-between items-center ">
         <ul className="flex space-x-24 ml-8">
           <li>
-            <Link to="/match">Match</Link>
+            <Link to="/ProfileCarousel">Match</Link>
           </li>
           <li>
             <Link to="/quotes">Quotes</Link>
