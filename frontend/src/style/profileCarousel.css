@@ -1,0 +1,53 @@
+.carousel {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Spacing between profiles */
+  }
+  
+  .profile-card {
+    width: 300px; /* Set a fixed width for the cards */
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .profile-card img {
+    width: 100%; /* Make the image fill the card */
+    height: auto;
+    border-radius: 50%;
+  }
+  
+  .profile-card h2 {
+    margin: 10px 0;
+  }
+  
+  .profile-card p {
+    font-size: 14px;
+  }
+  
+  .profile-card .buttons {
+    margin-top: 15px;
+  }
+  
+  .profile-card .buttons button {
+    margin-right: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .profile-card .buttons button:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Highlight the current profile */
+  .profile-card.current {
+    transform: scale(1.1);
+    border-color: #007bff;
+  }
+  
