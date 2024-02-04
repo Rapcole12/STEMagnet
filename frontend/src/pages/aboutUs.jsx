@@ -6,7 +6,8 @@ function AboutUs() {
   return (
     //sample comment
     <main className="h-screen">
-      <div className="sticky top-0 border-b border-black">
+    <div className="fixed top-0 w-full z-10">
+
         <NavBar />
       </div>
       <div className="h-screen bg-gradient-to-r from-purple-400 to-violet-800 overflow-hidden">
