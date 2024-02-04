@@ -66,12 +66,12 @@ function Inbox() {
               Inbox
             </h1>
 
-              <div className="flex flex-col w-full">
+              <div className="flex flex-col w-full invisible">
                 <p className="mt-4 w-full h-[50px] border border-black text-[14px] font-semibold p-2">
                 test
                 </p>
               </div>
-              <div className="flex flex-col w-full">
+              <div className="flex flex-col w-full invisible">
                 <p className="w-full h-[50px] border border-black text-[14px] font-semibold p-2">
                 test
                 </p>
