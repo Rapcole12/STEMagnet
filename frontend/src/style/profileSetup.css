@@ -1,0 +1,133 @@
+.body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to right, #FF7E5F, #E2B0FF);
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.header {
+    text-align: center;
+    margin-bottom: 20px; /* Add margin at the bottom for spacing */
+    font-family: 'Poppins', sans-serif;
+    background-color: #3498db; /* Recommended background color (blue) */
+    padding: 20px; /* Add padding for spacing and readability */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7); /* Slightly softer shadow */
+    border-radius: 10px; /* Rounded corners for a modern look */
+    color: #fff; /* Text color (white) */
+    font-size: 36px; /* Font size for header text */
+    text-transform: uppercase; /* Uppercase text for emphasis */
+    letter-spacing: 2px; /* Adjust letter spacing for style */
+}
+
+.form-container {
+    background-color: white;
+    padding: 5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Slightly softer shadow */
+    width: 50vw; /* Uses 50% of the viewport width */
+    max-width: 600px; /* Maximum width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically in the container */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Ensures full width within container */
+}
+
+.input-group > * {
+    margin: 0.5rem 0; /* Vertical margin for all children */
+}
+
+.form-group, .button-group {
+    width: 100%; /* Ensures full width within container */
+}
+
+input, select {
+    padding: 0.75rem; /* Increased padding for larger touch targets */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%; /* Full width for all inputs */
+}
+
+/* Styling for "Next" and "Back" buttons */
+.button-group {
+    display: flex;
+    justify-content: space-between; /* Positions buttons on either side */
+    margin-top: 10px;
+    align-items: center; /* Vertically center buttons */
+}
+
+button {
+    padding: 0.75rem 1.5rem; /* Larger buttons */
+    border-radius: 25px; /* More pronounced circular corners */
+    border: none;
+    cursor: pointer;
+    font-size: 1em; /* Responsive font size */
+    flex: 1; /* Buttons take up equal space */
+    margin: 0 0.5rem; /* Space between buttons */
+    transition: background-color 0.2s ease-in-out; /* Smooth background color transition */
+}
+
+.next-btn {
+    background-color: blue;
+    color: white;
+}
+
+.next-btn:hover {
+    background-color: darkblue; /* Darker color on hover */
+}
+
+.back-btn {
+    background-color: lightgray;
+}
+
+.back-btn:hover {
+    background-color: gray; /* Darker color on hover */
+}
+
+.submit-btn {
+    background-color: green;
+    color: white;
+}
+.submit-btn:hover {
+    background-color: darkgreen; /* Darker color on hover */
+}
+
+.experience-selection input,
+.experience-selection select,
+.quote-selection input,
+.aboutMe-selection textarea {
+    margin-bottom: .5rem; /* Adjust the margin to create the desired spacing */
+}
+
+textarea {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    
+    padding: 0.75rem;
+    width: 100%; /* Full width for textarea */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 2rem; /* Smaller padding on smaller screens */
+        width: 80vw; /* Takes up more width on smaller screens */
+    }
+
+    input, select, button, textarea {
+        padding: 0.5rem; /* Smaller padding on smaller screens */
+    }
+
+    .button-group button {
+        padding: 0.5rem 1rem; /* Smaller buttons on smaller screens */
+    }
+}

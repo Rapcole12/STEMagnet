@@ -47,7 +47,7 @@ function SignUp() {
         <div className="grid grid-cols-2 h-screen">
             <div class="pb-10 bg-gradient-to-r from-purple-400 to-violet-800 flex items-center justify-center">
                 <div className = "mx-auto justify-center items-center">
-                    <img className = "w-[500px] h-auto"src = {StemMagnetTransparent}/>
+                    <img className = "w-[325px] h-auto"src = {StemMagnetTransparent}/>
                 </div>
               
             </div> 
@@ -108,7 +108,7 @@ function SignUp() {
                         </p>
                         <input
                             className="pl-2 border border-black text-[14px] font-semibold w-full h-[40px] rounded-xl"
-                            type="text"
+                            type="password"
                             onChange={(e) => setPassword(e.target.value)}
                             name="firstName"
                             id="firstName"
