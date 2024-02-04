@@ -60,7 +60,7 @@ const ProfileCarousel = () => {
             </div>
             <div className="view-resume" onClick={handleViewResume}>View Resume</div>
           </div>
-          <img class="img" src={connectButtonImageUrl} alt="Connect" className="profile-side connect-side" onClick={handleConnect} />
+          <img class="img" src={connectButtonImageUrl} alt="Connect" className="img profile-side connect-side" onClick={handleConnect} />
         </div>
       </div>
     </>
