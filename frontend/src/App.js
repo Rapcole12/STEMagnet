@@ -2,11 +2,14 @@ import './App.css';
 
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
-import Home from './pages/Home';
-import profileSettuo from './pages/profileSettuo.jsx'
-import SignIn from './pages/SignIn'
-import SignUp from './pages/SignUp'
-
+import SignIn from "./pages/SignIn"
+import SignUp from "./pages/SignUp"
+import FindingMatchesPage from "./pages/findingMatchesPage"
+import Inbox from "./pages/inbox"
+import MenteeProfile from "./pages/menteeProfile"
+import MentorProfile from "./pages/mentorProfile"
+import ProfileSettup from "./pages/profileSettup"
+import Quotes from "./pages/quotes"
 
 function App() {
   return (
