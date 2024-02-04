@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 import Nav_logged_in from "../components/Nav_logged_in";
 import '../style/carousel.css'; // Ensure you have the updated styles
 import elijah from '../assets/elijahphoto.jpg';
+import pamanda from '../assets/pamanda.png';
+import ptimcook from '../assets/ptimcook.png';
+import pesteban from '../assets/pesteban.png';
+import palice from '../assets/palice.png';
 
 
 const profiles = [
-  { name: 'Alice', description: 'PROFILE ABOUT ME', image: elijah },
-  { name: 'Bob', description: 'PROFILE ABOUT ME', image: elijah },
-  { name: 'Charlie', description: 'PROFILE ABOUT ME', image: elijah },
+  { name: 'Alice', description: 'Como estas', image: elijah },
+  { name: 'Pamanda', description: 'I love to snuggle UwU', image: pamanda },
+  { name: 'Tim Apple', description: 'Hey there!', image: ptimcook },
+  { name: 'Alice', description: "Hi, I'm Alice and I love to code!", image: palice },
+  { name: 'Esteban', description: "Hola! Me encantaria conocerte", image: pesteban },
 ];
 
 const connectButtonImageUrl = 'https://media.istockphoto.com/id/1329322797/vector/opposite-magnets-white-black.jpg?s=612x612&w=0&k=20&c=yyDKgtRkOEGPki6-lDIBn-uQDUT65FSS-Dbp1yEMARQ=';
