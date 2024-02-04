@@ -42,7 +42,7 @@ function Inbox() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <p className="text-[#333333] font-semibold mt-2">Raphael Rodriguez</p>
+              <p className="text-[#333333] font-semibold mt-2">User</p>
               <p className="text-[#666666] text-[12px]">Mentee</p>
 
               <div className="flex flex-col mt-4">
