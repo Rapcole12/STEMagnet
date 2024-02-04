@@ -47,7 +47,7 @@ function SignUp() {
         <div className="grid grid-cols-2 h-screen">
             <div class="pb-10 bg-gradient-to-r from-purple-400 to-violet-800 flex items-center justify-center">
                 <div className = "mx-auto justify-center items-center">
-                    <img className = "w-[325px] h-auto"src = {StemMagnetTransparent}/>
+                    <img className = "w-[600px] h-auto"src = {StemMagnetTransparent}/>
                 </div>
               
             </div> 
