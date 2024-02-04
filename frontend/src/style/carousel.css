@@ -1,0 +1,87 @@
+.carousel-container {
+    position: relative;
+    max-width: 1000px; /* Adjust based on the maximum width you want */
+    margin: auto; /* This centers the carousel container */
+  }
+  
+  /* Slick Slider overrides for centering */
+  .slick-list {
+    overflow: hidden; /* Hide overflow to prevent horizontal scroll */
+  }
+  
+  /* Larger scale for the centered profile */
+  .slick-center .profile-card {
+    transform: scale(1.2); /* Larger scale for the center profile */
+    opacity: 1; /* Full opacity */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+    z-index: 10; /* Ensure it's above other cards */
+  }
+  
+  /* Smaller scale for non-centered profiles */
+  .profile-card {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transitions */
+    transform: scale(0.9); /* Smaller scale for other profiles */
+    opacity: 0.7; /* Reduced opacity for non-centered profiles */
+    margin: 0 10px; /* Spacing between cards */
+  }
+  
+  /* Positioning and styling for the action buttons */
+  .action-buttons {
+    position: absolute;
+    width: 100%;
+    bottom: -60px; /* Adjust according to your layout */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    pointer-events: none;
+  }
+  
+  .action-buttons button {
+    pointer-events: auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .action-buttons button:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Styling for previous and next navigation buttons */
+  .button-prev, .button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20; /* Ensure they are clickable over the cards */
+  }
+  
+  .button-prev {
+    left: -50px; /* Adjust so it's outside the left edge of the first profile card */
+  }
+  
+  .button-next {
+    right: -50px; /* Adjust so it's outside the right edge of the last profile card */
+  }
+  
+  .button-prev:hover, .button-next:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Make sure the current profile's description and buttons are visible */
+  .profile-card.current p,
+  .profile-card.current .buttons {
+    visibility: visible;
+  }
+  
+  /* Hide the description and buttons for non-current profiles */
+  .profile-card p,
+  .profile-card .buttons {
+    visibility: hidden;
+  }
+  
