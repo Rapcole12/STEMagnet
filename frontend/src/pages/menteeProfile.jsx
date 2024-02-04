@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import Nav_logged_in from "../components/Nav_logged_in";
 import rapcolepic from "../assets/rapcole.jpeg";
+import axios from "axios"
 
 function MenteeProfile() {
   const [FirstName, setFirstName] = useState('');
@@ -18,6 +19,27 @@ function MenteeProfile() {
   const [experience, setExperience] = useState('');
   const [profilePicture, setProfilePicture] = useState(''); // Store image URL or data here
   const [bio, setBio] = useState('');
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const userId = urlParams.get('userId');
+
+  function getCurrentData() {
+
+    axios.get(`http://localhost:3000/SignIn/getUser/${userId}`)
+    .then(response => {
+      const userData = response.data.user
+      setFirstName(userData.FirstName)
+      setLastName(userData.LastName)
+      setGender(userData.Gender)
+      setAge(userData.Age)
+      setBio(userData.AboutMe)
+      setUserType(userData.TypeOfUser)
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error)
+    })
+
+  }
 
   const handleData = () => {
     const data = {
@@ -38,8 +60,10 @@ function MenteeProfile() {
     // Send data to your backend or perform any desired actions
   };
 
+  getCurrentData()
   return (
     <main className="bg-gradient-to-r from-purple-400 to-violet-800 w-full h-screen">
+      <getCurrentData />
       <div>
         <Nav_logged_in/>
       </div>
@@ -54,8 +78,8 @@ function MenteeProfile() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <p className="text-[#333333] font-semibold mt-2">Raphael Rodriguez</p>
-              <p className="text-[#666666] text-[12px]">[User Type]</p>
+              <p className="text-[#333333] font-semibold mt-2">{FirstName + ' ' + LastName}</p>
+              <p className="text-[#666666] text-[12px]">{UserType}</p>
 
               <div className="flex flex-col mt-4">
             <label htmlFor="bio" className="text-[12px] mb-1">
@@ -67,6 +91,7 @@ function MenteeProfile() {
               name="bio"
               id="bio"
               rows={4} // Specify the number of rows
+              placeholder={bio}
               />
               </div>
             </div>
