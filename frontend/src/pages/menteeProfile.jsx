@@ -44,7 +44,7 @@ function SignUp() {
         <Nav_logged_in/>
       </div>
       <header>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 w-full">
           <div className="bg-[#FFFFFF] w-[1/5] mx">
             <div className="flex flex-col items-center">
               <div className="relative overflow-hidden rounded-full h-36 w-36 mt-4">
@@ -56,8 +56,22 @@ function SignUp() {
               </div>
               <p className="text-[#333333] font-semibold mt-2">Raphael Rodriguez</p>
               <p className="text-[#666666] text-[12px]">Mentee</p>
+
+              <div className="flex flex-col mt-4">
+            <label htmlFor="bio" className="text-[12px] mb-1">
+              Bio
+            </label>
+            <textarea
+              className="border border-black text-[14px] font-semibold p-2 rounded-xl"
+              onChange={(e) => setBio(e.target.value)}
+              name="bio"
+              id="bio"
+              rows={4} // Specify the number of rows
+              />
+              </div>
             </div>
           </div>
+
 
           <div className="bg-white-500 gap-8">
             <h1 className="text-[20px] ml-4 mt-2 font-semibold text-[#333333]">
