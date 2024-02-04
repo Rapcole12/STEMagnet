@@ -51,11 +51,11 @@ const Quotes = () => {
 
       {/* Apply invisible class conditionally */}
       <div className={`pt-8 ${showContent ? '' : 'invisible'}`}>
-        <li className="mx-auto animate-pulse items-center hover:bg-[#E0D9F1] w-[200px] h-[40px] flex bg-[#ffffff] font-semibold rounded-full border border-black">
-          <button className="mx-auto block text-black text-[12px]">
-            Connect with {quoteFirst}
-          </button>
-        </li>
+      <li className="mx-auto animate-pulse items-center hover:bg-[#E0D9F1] w-[200px] h-[40px] flex bg-[#ffffff] font-semibold rounded-full border border-black">
+        <a href="/mentorProfile/" className="w-full h-full flex items-center justify-center text-black text-[12px]">
+          Connect with {quoteFirst}
+        </a>
+      </li>
         <div class="pt-2">
         <li className="mx-auto items-center hover:bg-[#8F8F8F] w-[150px] h-[30px] flex bg-[#C1C1C1] font-semibold rounded-full border border-black">
           <button className="p-2 mx-auto block text-black text-[12px]">

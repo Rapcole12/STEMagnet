@@ -85,10 +85,10 @@ function MentorProfile() {
             <label htmlFor="bio" className="text-[12px] mb-1">
               Bio
             </label>
-            <textarea className="text-center resize-none mb-2 border border-black text-[14px] font-semibold p-2 rounded-xl">
+            <h1 className="w-[160px] h-[120px] text-center resize-none mb-2 border border-black text-[14px] font-semibold p-2 rounded-xl">
               
-              {bio}
-              </textarea>
+              Always give your 100%
+              </h1>
               </div>
             </div>
           </div>
@@ -103,7 +103,7 @@ function MentorProfile() {
               <div className="flex flex-col">
                 <p className="mt-4 text-[12px] mb-1">Name</p>
                 <h1 className="raph border border-black text-[14px] h-[40px] font-semibold p-2 rounded-xl">
-                  {FirstName} {LastName}
+                  Raphael Rodriguez
                   </h1>
               </div>
 
@@ -113,19 +113,19 @@ function MentorProfile() {
                   <label htmlFor="gender" className="text-[12px] mb-1">
                     Major
                   </label>
-                  <h1 className="border border-black text-[14px] font-semibold p-2 rounded-xl">
+                  <h1 className="border border-black text-[14px] font-semibold p-2 h-[40px] rounded-xl">
 
-                    {degree}
-                    </h1>
+                    Computer Engineering                 
+                </h1>
                 </div>
                 <div className="flex flex-col">
                   <label htmlFor="age" className="text-[12px] mb-1">
                     Age
                   </label>
-                  <h1 className="placeholder-gray border border-black text-[14px] font-semibold p-2 rounded-xl ">
+                  <h1 className="placeholder-gray border h-[40px] border-black text-[14px] font-semibold p-2 rounded-xl ">
                    
-                    {age}
-                    </h1>
+                    18                    
+                </h1>
                   
                 </div>
 
