@@ -1,87 +1,137 @@
 .carousel-container {
-    position: relative;
-    max-width: 1000px; /* Adjust based on the maximum width you want */
-    margin: auto; /* This centers the carousel container */
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to bottom, white, violet); /* Gradient from white to violet */
+  width: 100%; /* Take up full width */
+  height: 100vh; /* Take up full view height */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* Shadow over everything */
+
   
-  /* Slick Slider overrides for centering */
-  .slick-list {
-    overflow: hidden; /* Hide overflow to prevent horizontal scroll */
+}
+
+.profile-card-container {
+  display: flex;
+  z-index: 1; /* Ensure the cards are on top of the gradient background */
+  align-items: center;
+  justify-content: center;
+  width: 90%; /* Increase width to take up more space */
+  max-width: 1200px; /* Maximum width */
+  margin: auto; /* Center the container */
+}
+
+.profile-side {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  z-index: 2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  transition: transform .5s ease, box-shadow 0.6s ease; /* Smooth transition for transform and shadow */
+}
+
+.profile-side:hover {
+  transform: scale(1.3); /* Scales up the image by 10% */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Shadow for bulge effect */
+
+}
+
+.reject-side {
+  background-image: url('https://toppng.com/uploads/preview/red-x-in-circle-x-ico-11563249170jvl0jhe7df.png');
+  background-size: contain;
+  margin-right: 8px;
+  padding: 75px; /* Add some padding to the image */
+  background-repeat: no-repeat;
+}
+
+.connect-side {
+  background-image: url('https://media.istockphoto.com/id/1329322797/vector/opposite-magnets-white-black.jpg?s=612x612&w=0&k=20&c=yyDKgtRkOEGPki6-lDIBn-uQDUT65FSS-Dbp1yEMARQ='); 
+  background-size: contain;
+  margin-left: 8px;
+  padding: 75px; /* Add some padding to the image */
+  background-repeat: no-repeat;
+}
+
+.profile-card {
+  position: relative;
+  overflow: hidden;
+  display: flex; /* Changed to flex to align children vertically */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+
+}
+
+.profile-image-container {
+  position: relative;
+  width: 300px; /* Adjust based on your preference */
+  height: 300px; /* Adjust based on your preference */
+}
+
+.profile-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-description {
+  position: absolute;
+  bottom: 0px; /* Raise the description box above the 'View Resume' button */
+  left: 0;
+  right: 0;
+  background-color: rgba(83, 79, 79, 0.9); /* Adjusted opacity for better visibility */
+  opacity: .75;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+h2, p {
+  margin: 0; /* Remove default margins */
+  padding: 5px 0; /* Add some spacing */
+  color: white; /* Light text color for readability */
+}
+
+.view-resume {
+  margin-top: 20px; /* Add space between the image container and the button */
+  padding: 10px 20px;
+  background-color: orange;
+  color: white;
+  cursor: pointer;
+  width: 300px; /* Match the profile card width */
+  text-align: center;
+  border-radius: 5px;
+  /* Removed absolute positioning */
+}
+
+.view-resume:hover {
+  background-color: darkorange; /* Darken the background color on hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, .5); /* Subtle shadow for button */
+
+}
+
+
+@keyframes throwLeft {
+  to {
+    transform: translateX(-100vw) rotate(-20deg);
+    opacity: 0;
   }
-  
-  /* Larger scale for the centered profile */
-  .slick-center .profile-card {
-    transform: scale(1.2); /* Larger scale for the center profile */
-    opacity: 1; /* Full opacity */
-    transition: transform 0.3s ease-in-out; /* Smooth transition */
-    z-index: 10; /* Ensure it's above other cards */
+}
+
+@keyframes throwRight {
+  to {
+    transform: translateX(100vw) rotate(20deg);
+    opacity: 0;
   }
-  
-  /* Smaller scale for non-centered profiles */
-  .profile-card {
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transitions */
-    transform: scale(0.9); /* Smaller scale for other profiles */
-    opacity: 0.7; /* Reduced opacity for non-centered profiles */
-    margin: 0 10px; /* Spacing between cards */
-  }
-  
-  /* Positioning and styling for the action buttons */
-  .action-buttons {
-    position: absolute;
-    width: 100%;
-    bottom: -60px; /* Adjust according to your layout */
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    pointer-events: none;
-  }
-  
-  .action-buttons button {
-    pointer-events: auto;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  
-  .action-buttons button:hover {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  /* Styling for previous and next navigation buttons */
-  .button-prev, .button-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 20; /* Ensure they are clickable over the cards */
-  }
-  
-  .button-prev {
-    left: -50px; /* Adjust so it's outside the left edge of the first profile card */
-  }
-  
-  .button-next {
-    right: -50px; /* Adjust so it's outside the right edge of the last profile card */
-  }
-  
-  .button-prev:hover, .button-next:hover {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  /* Make sure the current profile's description and buttons are visible */
-  .profile-card.current p,
-  .profile-card.current .buttons {
-    visibility: visible;
-  }
-  
-  /* Hide the description and buttons for non-current profiles */
-  .profile-card p,
-  .profile-card .buttons {
-    visibility: hidden;
-  }
-  
+}
+
+.profile-card.throw-left {
+  animation: throwLeft 0.5s forwards;
+}
+
+.profile-card.throw-right {
+  animation: throwRight 0.5s forwards;
+}

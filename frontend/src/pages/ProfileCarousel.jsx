@@ -1,210 +1,67 @@
-import React, { useState, useRef, useEffect } from 'react';
-
-import Slider from 'react-slick';
-
-import "../style/carousel.css";
-
-import "slick-carousel/slick/slick.css";
-
-import "slick-carousel/slick/slick-theme.css";
-
-import elijahpic from '../assets/elijahphoto.jpg';
-
-
-
-
-
-
+import React, { useState } from 'react';
+import Nav from "../components/Nav.jsx";
+import '../style/carousel.css'; // Ensure you have the updated styles
+import elijah from '../assets/elijahphoto.jpg';
 
 const profiles = [
-
-  { name: 'Alice', description: 'PROFILE ABOUT ME', image: elijahpic },
-
-  { name: 'Bob', description: 'PROFILE ABOUT ME', image: elijahpic },
-
-  { name: 'Charlie', description: 'PROFILE ABOUT ME', image: elijahpic },
-
+  { name: 'Alice', description: 'PROFILE ABOUT ME', image: elijah },
+  { name: 'Bob', description: 'PROFILE ABOUT ME', image: elijah },
+  { name: 'Charlie', description: 'PROFILE ABOUT ME', image: elijah },
 ];
 
-
-
+const connectButtonImageUrl = 'https://media.istockphoto.com/id/1329322797/vector/opposite-magnets-white-black.jpg?s=612x612&w=0&k=20&c=yyDKgtRkOEGPki6-lDIBn-uQDUT65FSS-Dbp1yEMARQ=';
+const rejectButtonImageUrl = 'https://toppng.com/uploads/preview/red-x-in-circle-x-ico-11563249170jvl0jhe7df.png';
 
 const ProfileCarousel = () => {
-
-const [currentIndex, setCurrentIndex] = useState(1);
-
-const sliderRef = useRef(null);
-
-useEffect(() => {
-
-  sliderRef.current.innerSlider.list.style.padding = '0px';
-
-}, []);
-
-
-
-
-const settings = {
-
-  dots: false,
-
-  infinite: true,
-
-  speed: 500,
-
-  slidesToShow: 3,
-
-  slidesToScroll: 1,
-
-  centerMode: true,
-
-  centerPadding: '0px',
-
-  beforeChange: (current, next) => setCurrentIndex(next),
-
-  initialSlide: 1,
-
-  responsive: [
-
-    {
-
-      breakpoint: 1024,
-
-      settings: {
-
-        slidesToShow: 1,
-
-        slidesToScroll: 1,
-
-      }
-
-    }
-
-  ]
-
-};
-
-
-
-
-const goToSlide = (index) => {
-
-  if (sliderRef.current) {
-
-    sliderRef.current.slickGoTo(index); // Use slickGoTo to navigate to a particular slide index
-
-  }
-
-};
-
-
-
-
-const next = () => {
-
-  sliderRef.current.slickNext(); 
-
-};
-
-const previous = () => {
-
-  sliderRef.current.slickPrev();
-
-};
-
-
-
-
-const handleConnect = (index) => {
-
-  // Handle backend connection logic
-
-  sliderRef.current.slickNext(); 
-
-};
-
-
-
-
-const handleReject = (index) => {
-
-  sliderRef.current.slickNext(); 
-
-};
-
-
-
-
-const handleViewResume = (index) => {
-
-  // Handle the view resume action
-
-  console.log('View Resume clicked on:', profiles[index].name);
-
-};
-
-
-
-
-return (
-
-  <div className="carousel-container">
-
-    <button className="button-prev" onClick={previous}>Previous</button>
-
-    <div className="carousel">
-
-    <Slider ref={sliderRef} {...settings}>
-
-  {profiles.map((profile, index) => (
-
-    <div key={index} className={`profile-card ${index === currentIndex ? 'current' : ''}`}>
-
-      <img src={profile.image} alt={profile.name} />
-
-      <h2>{profile.name}</h2>
-
-      <p>{profile.description}</p>
-
-      {index === currentIndex && (
-
-        <div className="buttons">
-
-                {/* Your buttons for Connect/Reject here */}
-
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [animation, setAnimation] = useState('');
+
+
+  const nextProfile = () => {
+    // Reset animation to ensure the next profile appears normally
+    setAnimation('');
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % profiles.length);
+  };
+
+  
+
+  const handleConnect = () => {
+    setAnimation('throw-right');
+    setTimeout(nextProfile, 500); // Match the duration of the CSS animation
+  };
+
+  const handleReject = () => {
+    setAnimation('throw-left');
+    setTimeout(nextProfile, 500); // Match the duration of the CSS animation
+  };
+
+  const handleViewResume = () => {
+    // Implement view resume logic here
+    console.log("View Resume clicked for:", profiles[currentIndex].name);
+  };
+
+  return (
+    <>
+      <Nav />
+      <div className="carousel-container">
+        <div className="profile-card-container">
+          <img src={rejectButtonImageUrl} alt="Reject" className="profile-side reject-side" onClick={handleReject} />
+          <div className={`profile-card ${animation}`}>
+            <div className="profile-image-container">
+              <img src={profiles[currentIndex].image} alt={profiles[currentIndex].name} />
+              <div className="profile-description">
+                <h2>{profiles[currentIndex].name}</h2>
+                <p>{profiles[currentIndex].description}</p>
               </div>
-
-            )}
-
+            </div>
+            <div className="view-resume" onClick={handleViewResume}>View Resume</div>
           </div>
-
-        ))}
-
-      </Slider>
-
+          <img src={connectButtonImageUrl} alt="Connect" className="profile-side connect-side" onClick={handleConnect} />
+        </div>
       </div>
-
-      {/* Action buttons */}
-
-      <div className="action-buttons">
-
-        <button onClick={handleConnect}>Connect</button>
-
-        <button onClick={handleReject}>Reject</button>
-
-        <button onClick={handleViewResume}>View Resume</button>
-
-    </div>
-
-    <button className="button-next" onClick={next}>Next</button>
-
-  </div>
-
-);
-
+    </>
+  );
 };
-
-
-
+  
 
 export default ProfileCarousel;
