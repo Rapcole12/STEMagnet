@@ -18,6 +18,9 @@ const Nav = () => {
           <li>
             <Link to="/quotes">Quotes</Link>
           </li>
+          <li>
+            <Link to="/aboutus">About Us</Link>
+          </li>
         </ul>
         <div className="flex items-center space-x-4">
           <div className="relative overflow-hidden rounded-full h-10 w-10">
