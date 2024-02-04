@@ -1,9 +1,11 @@
 import express from "express"
 import { signupUser } from "../models/SignUpModel.js";
+import {MongoClient} from 'mongodb'
+import 'dotenv/config';
 
 const router = express.Router();
 
-
+const client = new MongoClient(process.env.mongoDBUserURL, { useNewUrlParser: true, useUnifiedTopology: true })
 //Route to Post The Data to DataBase
 router.post('/create_user', async(req, res) => {
     try{
@@ -48,6 +50,35 @@ router.put('/create_user/:id', async(req, res) => {
     }
 
     return res.status(200).send({message: "User Updated Successfully"})
+})
+
+router.post('/SignIn/authenticate', async (req, res) => {
+    const {Email, Password} = req.body
+    try{
+        await client.connect()
+
+        const database = client.db('UserData')
+        const collection = database.collection('users')
+
+        const user = await collection.findOne({
+            Email: Email,
+            Password: Password
+        })
+
+        if (user) {
+            res.status(200).json({ success: true, message: 'Authentication successful', userId: user._id});
+        } else {
+            res.status(401).json({ success: false, message: 'Authentication failed' });
+        }
+
+    }
+    catch (error) {
+        console.error('Error authenticating user:', error)
+        res.status(500).json({success: false, message: 'Internal Server Error'})
+    }
+    finally{
+        await client.close
+    }
 })
 
 export default router;
