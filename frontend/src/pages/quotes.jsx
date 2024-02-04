@@ -44,7 +44,7 @@ const Quotes = () => {
           {quoteSelected}
         </h1>
 
-        <h1 className="p-2pt-10 text-[18px] text-white text-center">
+        <h1 className=" pt-5 pt-10 text-[18px] text-white text-center">
           -{quoteFirst} {quoteLast}
         </h1>
       </div>
